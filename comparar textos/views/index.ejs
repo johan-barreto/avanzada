@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Comparador de Texto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .results {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comparador de Texto</h1>
+  <form action="/compare" method="POST">
+    <textarea name="text1" rows="5" cols="40" placeholder="Texto 1"></textarea>
+    <br>
+    <textarea name="text2" rows="5" cols="40" placeholder="Texto 2"></textarea>
+    <br>
+    <button type="submit">Comparar</button>
+  </form>
+
+  <% if (similarity !== undefined && sentiment1 !== undefined && sentiment2 !== undefined) { %>
+    <h2>Resultados</h2>
+    <p>Porcentaje de similitud: <%= (similarity * 100).toFixed(2) %>%</p>
+    <p>Porcentaje de sentimiento del Texto 1: <%= (sentiment1 * 100).toFixed(2) %>%</p>
+    <p>Porcentaje de sentimiento del Texto 2: <%= (sentiment2 * 100).toFixed(2) %>%</p>
+  <% } %>
+</body>
+</html>
